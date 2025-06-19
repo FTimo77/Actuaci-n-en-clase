@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlexBox</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <style>
+      .code-block {
+        position: relative;
+        background: #222;
+        color: #eee;
+        border-radius: 8px;
+        padding: 1em;
+        margin: 1em 0;
+        font-family: 'Fira Mono', monospace;
+        overflow-x: auto;
+      }
+      .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #444;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 0.3em 0.8em;
+        cursor: pointer;
+        font-size: 0.9em;
+      }
+      pre {
+        margin: 0;
+      }
+      .section-img {
+        width: 100%;
+        border-radius: 8px;
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="bootstrap.html">Actuaciones en clase</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="flexbox.html"
+                >Consulta Flex Box</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="ia.html"
+                >Página con IA</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sapitos.html">Sapitos-Flexbox</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="crud.php">Página Crud</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Contacto
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Email</a></li>
+                <li><a class="dropdown-item" href="#">Teléfono</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Buscar"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Buscar
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <h1 class="mb-4">Flexbox</h1>
+      <img src="assets/flexbox.jpg" class="img-thumbnail section-img" alt="Flexbox" />
+      <p>
+        <strong>Flexbox</strong>, o Flexible Box Layout, es un modelo de diseño CSS que proporciona
+        una forma eficiente de distribuir elementos dentro de un contenedor y
+        alinearlos de manera dinámica.<br>
+        Antes de Flexbox, los desarrolladores tenían opciones limitadas, como el uso
+        de <code>float</code>, que no eran compatibles entre navegadores y difíciles de
+        escalar para adaptarse a diferentes resoluciones de pantalla. Flexbox
+        supera estas limitaciones al ofrecer un conjunto de propiedades y valores
+        que permiten centrar bloques vertical y horizontalmente, asegurando además
+        que todas las columnas de un contenedor tengan la misma altura,
+        independientemente de la cantidad de contenido que contengan.
+      </p>
+
+      <h2 class="mt-5">Estructura</h2>
+      <p>
+        La estructura de Flexbox se compone de contenedores padre e hijos
+        (<strong>Contenedor-Flex</strong> y <strong>Elementos-Flex</strong> respectivamente).
+      </p>
+      <img
+        src="assets/estructura_flex.jpg"
+        class="img-thumbnail section-img"
+        alt="Estructura Flexbox"
+      />
+      <ul>
+        <li>
+          <strong>Contenedor-Flex:</strong> Es el elemento padre que contiene los
+          elementos hijos. Se define con la propiedad CSS
+          <code>display: flex;</code>.
+        </li>
+        <li>
+          <strong>Elementos-Flex:</strong> Son los elementos hijos dentro del
+          contenedor. Se adaptan automáticamente al espacio disponible en el
+          contenedor.
+        </li>
+      </ul>
+
+      <div id="flex-direction" class="mb-5">
+        <h2>Flex-direction</h2>
+        <p>
+          Es la encargada de definir el eje principal y secundario de nuestros
+          elementos hijos. Estos ejes, como ya se mencionó, pueden ser verticales,
+          formando columnas, y horizontales, formando filas.
+        </p>
+        <div class="code-block">
+          <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+          <pre><code>
+.contenedor-padre { 
+  display: flex;
+  flex-direction: row | row-reverse | column | column-reverse;
+}
+          </code></pre>
+        </div>
+        <img
+          src="assets/row-reverse.png"
+          alt="Flex Direction"
+          class="section-img"
+        />
+      </div>
+
+      <div id="flex-wrap" class="mb-5">
+        <h2>Flex-wrap</h2>
+        <p>
+          Por defecto, flex trata de disponer los elementos en una misma línea. Si no es el caso que necesitas, con <code>flex-wrap</code> puedes ordenar los elementos en más de una fila o columna.
+        </p>
+        <div class="code-block">
+          <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+          <pre><code>
+.contenedor-padre {
+  display: flex;
+  flex-wrap: nowrap | wrap | wrap-reverse;
+}
+          </code></pre>
+        </div>
+        <img src="assets/flex-wrap.png" alt="Flex Wrap" class="section-img">
+      </div>
+
+      <div id="justify-content" class="mb-5">
+        <h2>Justify-content</h2>
+        <p>
+          Cuando nombramos el eje principal de un elemento padre, es decir, el eje horizontal, se destaca esta propiedad para dar direccionamiento a los elementos hijos.
+        </p>
+        <div class="code-block">
+          <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+          <pre><code>
+.contenedor-padre {
+  display: flex;
+  justify-content: stretch | flex-start | flex-end | center | space-between | space-around | space-evenly;
+}
+          </code></pre>
+        </div>
+        <img src="assets/justify-content.png" alt="Justify Content" class="section-img">
+      </div>
+
+      <div id="align-items" class="mb-5">
+        <h2>Align-items</h2>
+        <p>
+          Esta propiedad alinea los elementos hijos a lo largo del eje secundario (por defecto, el eje vertical). Es útil para controlar la alineación vertical de los elementos dentro del contenedor flex.
+        </p>
+        <div class="code-block">
+          <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+          <pre><code>
+.contenedor-padre {
+  display: flex;
+  align-items: stretch | flex-start | flex-end | center | baseline;
+}
+          </code></pre>
+        </div>
+        <img src="assets/align-items.png" alt="Align Items" class="section-img">
+      </div>
+
+      <div id="align-content" class="mb-5">
+        <h2>Align-content</h2>
+        <p>
+          Esta propiedad distribuye el espacio entre las líneas del contenedor flex cuando hay varias líneas (por ejemplo, cuando se usa <code>flex-wrap: wrap</code>). No afecta si solo hay una línea de elementos.
+        </p>
+        <div class="code-block">
+          <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+          <pre><code>
+.contenedor-padre {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch | flex-start | flex-end | center | space-between | space-around;
+}
+          </code></pre>
+        </div>
+      </div>
+
+      <div id="flex-item" class="mb-5">
+        <h2>Propiedades de los elementos hijos (Flex Items)</h2>
+        <p>
+          Los elementos hijos de un contenedor flex también tienen propiedades específicas para controlar su tamaño y alineación:
+        </p>
+        <ul>
+          <li>
+            <strong>order:</strong> Cambia el orden visual de los elementos.
+          </li>
+          <li>
+            <strong>flex-grow:</strong> Define cuánto crecerá un elemento en relación a los demás.
+          </li>
+          <li>
+            <strong>flex-shrink:</strong> Define cuánto puede reducirse un elemento si es necesario.
+          </li>
+          <li>
+            <strong>flex-basis:</strong> Define el tamaño base del elemento antes de distribuir el espacio restante.
+          </li>
+          <li>
+            <strong>align-self:</strong> Permite alinear individualmente un elemento diferente al resto.
+          </li>
+        </ul>
+        <div class="code-block">
+          <button class="copy-btn" onclick="copiarCodigo(this)">Copiar</button>
+          <pre><code>
+.elemento-hijo {
+  order: 2;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 200px;
+  align-self: center;
+}
+          </code></pre>
+        </div>
+      </div>
+    </div>
+    <script>
+      function copiarCodigo(btn) {
+        const code = btn.parentElement.querySelector('code').innerText;
+        navigator.clipboard.writeText(code);
+        btn.textContent = '¡Copiado!';
+        setTimeout(() => btn.textContent = 'Copiar', 1500);
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
